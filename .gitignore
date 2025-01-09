@@ -4,5 +4,5 @@
 /note/.obsidian/
 /data/
 /config
-.xml
-.log
+*.xml
+*.log

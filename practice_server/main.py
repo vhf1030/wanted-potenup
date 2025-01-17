@@ -186,6 +186,10 @@ def update_user(user_id: int, name: str, email: str, db: Session = Depends(get_d
     return "데이터 수정"
 
 
+
+
+
+
 # uvicorn main:app --reload --host 0.0.0.0
 # http://192.168.10.87:8000/docs#/
 

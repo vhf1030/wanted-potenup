@@ -1,0 +1,5 @@
+# wanted-server
+Host wanted-server
+  HostName 192.168.10.96
+  User wanted-1
+  IdentityFile ~/.ssh/wanted_id_rsa.pub

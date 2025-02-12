@@ -8,3 +8,6 @@
 *.xml
 *.log
 /project_pisces/
+/practice_DL/MNIST
+*.pth
+/models/

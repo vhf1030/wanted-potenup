@@ -12,3 +12,4 @@
 *.pth
 /models/
 *.zip
+/project_dacon/

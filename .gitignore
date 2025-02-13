@@ -11,3 +11,4 @@
 /practice_DL/MNIST
 *.pth
 /models/
+*.zip

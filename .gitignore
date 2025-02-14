@@ -13,3 +13,4 @@
 /models/
 *.zip
 /project_dacon/
+**/log

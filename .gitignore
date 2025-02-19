@@ -4,7 +4,7 @@
 /note/.obsidian/
 **/data/
 **/__pycache__/
-/config
+**/config
 *.xml
 *.log
 /project_pisces/

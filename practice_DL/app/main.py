@@ -157,4 +157,4 @@ app.include_router(predict_router)
 
 
 # uvicorn app.main:app --host 0.0.0.0 --port 8080 --reload
-# http://192.168.10.87:8000/docs#/
+# http://192.168.10.87:8080/docs#/

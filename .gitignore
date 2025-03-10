@@ -16,3 +16,5 @@
 **/log
 /project_diary/
 /ai-study/
+*.env
+*.gguf

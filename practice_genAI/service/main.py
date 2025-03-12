@@ -1,4 +1,5 @@
 from fastapi import FastAPI, File, UploadFile
+from fastapi.responses import FileResponse
 import uvicorn
 from pydantic import BaseModel
 from book_agent import send_bookinfo
@@ -41,6 +42,17 @@ def send_wav(file: UploadFile=File(...)):
     
     return {'result': result}
     
+@app.post('/image')
+def send_image(file: UploadFile=File(...)):
+    folder_path = "image"
+    os.makedirs(folder_path, exist_ok=True)
+    file_path = os.path.join(folder_path, file.filename)
+    
+    with open(file_path, "wb") as buffer:
+        shutil.copyfileobj(file.file, buffer)
+    
+    return FileResponse(file_path, media_type='image/jpeg', filename=file.filename)
+
     
 if __name__ == "__main__":
     uvicorn.run("main:app", reload=True)

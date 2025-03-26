@@ -20,3 +20,4 @@
 *.gguf
 /KOMI_PJT/
 **/db/
+**/ComfyUI/

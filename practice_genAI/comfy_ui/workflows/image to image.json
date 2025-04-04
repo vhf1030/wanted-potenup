@@ -191,39 +191,173 @@
       ]
     },
     {
-      "id": 7,
-      "type": "KSampler",
+      "id": 16,
+      "type": "VAELoader",
       "pos": [
-        1567.6905517578125,
-        -3.3418235778808594
+        -102.10984802246094,
+        766.533935546875
       ],
       "size": [
         315,
-        474
+        58
       ],
       "flags": {},
-      "order": 10,
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            17
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.27",
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "FLUX1\\ae.safetensors"
+      ]
+    },
+    {
+      "id": 8,
+      "type": "VAELoader",
+      "pos": [
+        1553.62890625,
+        548.2120971679688
+      ],
+      "size": [
+        315,
+        58
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            12
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.27",
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "FLUX1\\ae.safetensors"
+      ]
+    },
+    {
+      "id": 2,
+      "type": "FluxGuidance",
+      "pos": [
+        1144.4478759765625,
+        20.683101654052734
+      ],
+      "size": [
+        317.4000244140625,
+        58
+      ],
+      "flags": {},
+      "order": 9,
       "mode": 0,
       "inputs": [
         {
-          "name": "model",
-          "type": "MODEL",
-          "link": 15
-        },
-        {
-          "name": "positive",
+          "name": "conditioning",
           "type": "CONDITIONING",
-          "link": 10
-        },
+          "link": 7
+        }
+      ],
+      "outputs": [
         {
-          "name": "negative",
+          "name": "CONDITIONING",
           "type": "CONDITIONING",
-          "link": 9
+          "links": [
+            10
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.27",
+        "Node name for S&R": "FluxGuidance"
+      },
+      "widgets_values": [
+        3.5
+      ]
+    },
+    {
+      "id": 5,
+      "type": "CLIPTextEncode",
+      "pos": [
+        696.8772583007812,
+        8.876856803894043
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 20
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            7
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.27",
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "one girl, white dress, green color background, 8bit"
+      ]
+    },
+    {
+      "id": 15,
+      "type": "VAEEncode",
+      "pos": [
+        460.1330871582031,
+        403.8421325683594
+      ],
+      "size": [
+        210,
+        46
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "pixels",
+          "type": "IMAGE",
+          "link": 16
         },
         {
-          "name": "latent_image",
-          "type": "LATENT",
-          "link": 18
+          "name": "vae",
+          "type": "VAE",
+          "link": 17
         }
       ],
       "outputs": [
@@ -231,25 +365,16 @@
           "name": "LATENT",
           "type": "LATENT",
           "links": [
-            11
+            18
           ]
         }
       ],
       "properties": {
         "cnr_id": "comfy-core",
         "ver": "0.3.27",
-        "Node name for S&R": "KSampler"
+        "Node name for S&R": "VAEEncode"
       },
-      "widgets_values": [
-        319125689470183,
-        "fixed",
-        8,
-        8,
-        "euler",
-        "normal",
-        0.7000000000000002,
-        ""
-      ]
+      "widgets_values": []
     },
     {
       "id": 11,
@@ -317,45 +442,6 @@
       ]
     },
     {
-      "id": 5,
-      "type": "CLIPTextEncode",
-      "pos": [
-        676.9122314453125,
-        35.496856689453125
-      ],
-      "size": [
-        400,
-        200
-      ],
-      "flags": {},
-      "order": 8,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 20
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            7
-          ]
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.27",
-        "Node name for S&R": "CLIPTextEncode"
-      },
-      "widgets_values": [
-        "one girl, white dress, green color background, 8bit"
-      ]
-    },
-    {
       "id": 14,
       "type": "LoadImage",
       "pos": [
@@ -367,7 +453,7 @@
         314
       ],
       "flags": {},
-      "order": 2,
+      "order": 4,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -390,140 +476,45 @@
         "Node name for S&R": "LoadImage"
       },
       "widgets_values": [
-        "wink_sample.webp",
+        "ComfyUI_00129_.png",
         "image",
         ""
       ]
     },
     {
-      "id": 16,
-      "type": "VAELoader",
+      "id": 7,
+      "type": "KSampler",
       "pos": [
-        -102.10984802246094,
-        766.533935546875
+        1567.6905517578125,
+        -3.3418235778808594
       ],
       "size": [
         315,
-        58
+        474
       ],
       "flags": {},
-      "order": 3,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "VAE",
-          "type": "VAE",
-          "links": [
-            17
-          ]
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.27",
-        "Node name for S&R": "VAELoader"
-      },
-      "widgets_values": [
-        "FLUX1\\ae.safetensors"
-      ]
-    },
-    {
-      "id": 8,
-      "type": "VAELoader",
-      "pos": [
-        1553.62890625,
-        548.2120971679688
-      ],
-      "size": [
-        315,
-        58
-      ],
-      "flags": {},
-      "order": 4,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "VAE",
-          "type": "VAE",
-          "links": [
-            12
-          ]
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.27",
-        "Node name for S&R": "VAELoader"
-      },
-      "widgets_values": [
-        "FLUX1\\ae.safetensors"
-      ]
-    },
-    {
-      "id": 2,
-      "type": "FluxGuidance",
-      "pos": [
-        1136.4617919921875,
-        33.99310302734375
-      ],
-      "size": [
-        317.4000244140625,
-        58
-      ],
-      "flags": {},
-      "order": 9,
+      "order": 10,
       "mode": 0,
       "inputs": [
         {
-          "name": "conditioning",
-          "type": "CONDITIONING",
-          "link": 7
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            10
-          ]
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.27",
-        "Node name for S&R": "FluxGuidance"
-      },
-      "widgets_values": [
-        3.5
-      ]
-    },
-    {
-      "id": 15,
-      "type": "VAEEncode",
-      "pos": [
-        414.8791198730469,
-        423.80712890625
-      ],
-      "size": [
-        210,
-        46
-      ],
-      "flags": {},
-      "order": 7,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "pixels",
-          "type": "IMAGE",
-          "link": 16
+          "name": "model",
+          "type": "MODEL",
+          "link": 15
         },
         {
-          "name": "vae",
-          "type": "VAE",
-          "link": 17
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 10
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 9
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 18
         }
       ],
       "outputs": [
@@ -531,15 +522,25 @@
           "name": "LATENT",
           "type": "LATENT",
           "links": [
-            18
+            11
           ]
         }
       ],
       "properties": {
         "cnr_id": "comfy-core",
         "ver": "0.3.27",
-        "Node name for S&R": "VAEEncode"
-      }
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        319125689470183,
+        "fixed",
+        20,
+        8,
+        "euler",
+        "normal",
+        0.8000000000000002,
+        ""
+      ]
     }
   ],
   "links": [
@@ -660,10 +661,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.7513148009015777,
+      "scale": 0.6830134553650712,
       "offset": [
-        -14.93420687061924,
-        180.48599162084508
+        -380.83667234709037,
+        251.15174821881243
       ]
     },
     "ue_links": [],

@@ -1,0 +1,9 @@
+{
+    "mcpServers": {
+        "calculator": {
+            "command": "C:/Users/user/miniconda3/envs/lang_311/python",
+            "args": ["C:/wanted/practice_MCP/basic_server.py"],
+            "transport": "stdio"
+        }
+    }
+}
